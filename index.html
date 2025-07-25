@@ -1,1 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourHomepage.in - Own Your Piece of the Internet</title>
+    <meta name="description" content="YourHomepage.in - The most exclusive digital real estate platform. Own your piece of the internet forever with our 99-year pixel ownership guarantee.">
+    <meta name="keywords" content="digital real estate, pixel ownership, internet property, brand visibility, permanent advertising">
+    <meta name="author" content="YourHomepage.in">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourhomepage.in">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="YourHomepage.in - Own Your Piece of the Internet">
+    <meta property="og:description" content="The most exclusive digital real estate platform. 99-year pixel ownership guarantee.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourhomepage.in">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YourHomepage.in - Own Your Piece of the Internet">
+    <meta name="twitter:description" content="The most exclusive digital real estate platform. 99-year pixel ownership guarantee.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --color-pure-black: #000000;
+            --color-pure-white: #FFFFFF;
+            --color-grey-50: #FAFAFA;
+            --color-grey-100: #F5F5F5;
+            --color-grey-200: #E5E5E5;
+            --color-grey-300: #D4D4D4;
+            --color-grey-400: #A3A3A3;
+            --color-grey-500: #737373;
+            --color-grey-600: #525252;
+            --color-grey-700: #404040;
+            --color-grey-800: #262626;
+            --color-grey-900: #171717;
+            --color-grey-950: #0A0A0A;
+            
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-elegant: 'Playfair Display', serif;
+            --font-clean: 'Inter', sans-serif;
+            
+            --transition-instant: 0.1s ease;
+            --transition-fast: 0.2s ease;
+            --transition-smooth: 0.4s ease;
+            --transition-slow: 0.6s ease;
+            --transition-luxury: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-clean);
+            background-color: var(--color-pure-black);
+            color: var(--color-pure-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.85));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-wrapper {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            color: var(--color-pure-white);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .logo:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: var(--color-grey-300);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-pure-white);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-pure-white);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .buy-pixels-btn {
+            background: var(--color-pure-white);
+            color: var(--color-pure-black);
+            padding: 0.8rem 2rem;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .buy-pixels-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 2px;
+            background: var(--color-pure-white);
+            display: block;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+        
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--color-pure-white);
+            transition: var(--transition-fast);
+        }
+        
+        .menu-icon::before {
+            top: -8px;
+        }
+        
+        .menu-icon::after {
+            bottom: -8px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+        
+        /* Grid Container */
+        .grids-container {
+            width: 100%;
+        }
+        
+        /* Individual Grid Page */
+        .grid-page {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-pure-black);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .grid-page:nth-child(odd) {
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Canvas Container */
+        .canvas-container {
+            position: relative;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 900px;
+            max-height: 900px;
+            background: var(--color-pure-white);
+            box-shadow: 0 0 100px rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+        
+        /* Pixel Canvas */
+        .pixel-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: crosshair;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        
+        /* Tooltip */
+        .pixel-tooltip {
+            position: fixed;
+            background: rgba(0,0,0,0.95);
+            color: var(--color-pure-white);
+            padding: 0.8rem 1.2rem;
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition-fast);
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 300px;
+        }
+        
+        .pixel-tooltip.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-pure-black);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-link {
+            color: var(--color-grey-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-pure-white);
+        }
+        
+        .footer-copyright {
+            color: var(--color-grey-600);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Modals */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.98);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--color-grey-950);
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--color-pure-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--color-pure-white);
+            transform: rotate(90deg);
+        }
+        
+        /* Purchase Dashboard */
+        .purchase-dashboard {
+            padding: 3rem;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .dashboard-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-subtitle {
+            color: var(--color-grey-400);
+            font-size: 1rem;
+        }
+        
+        /* Dashboard Layout */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        /* Canvas Section */
+        .canvas-section {
+            background: var(--color-grey-900);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .canvas-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .page-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .page-selector label {
+            font-size: 0.9rem;
+            color: var(--color-grey-400);
+        }
+        
+        .page-select {
+            background: var(--color-pure-black);
+            color: var(--color-pure-white);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .page-select:focus {
+            outline: none;
+            border-color: var(--color-pure-white);
+        }
+        
+        /* Zoom Controls */
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .zoom-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--color-pure-black);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--color-pure-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            font-size: 1.2rem;
+        }
+        
+        .zoom-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--color-pure-white);
+        }
+        
+        .zoom-level {
+            font-size: 0.9rem;
+            color: var(--color-grey-400);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* Interactive Canvas */
+        .interactive-canvas-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: var(--color-pure-black);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .interactive-canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
+            transition: none;
+        }
+        
+        .interactive-canvas.dragging {
+            cursor: grabbing;
+        }
+        
+        .pixel-grid-interactive {
+            display: grid;
+            grid-template-columns: repeat(1000, 1fr);
+            grid-template-rows: repeat(1000, 1fr);
+            background: var(--color-pure-white);
+            border: 1px solid var(--color-pure-black);
+        }
+        
+        .pixel-cell {
+            border: 0.5px solid rgba(0,0,0,0.1);
+            transition: var(--transition-instant);
+            cursor: pointer;
+        }
+        
+        .pixel-cell:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        
+        .pixel-cell.selected {
+            background: var(--color-pure-black) !important;
+            border-color: var(--color-pure-black);
+        }
+        
+        .pixel-cell.purchased {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+        
+        /* Sidebar */
+        .dashboard-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar-section {
+            background: var(--color-grey-900);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section-title {
+            font-family: var(--font-elegant);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-pure-white);
+        }
+        
+        /* Selection Info */
+        .selection-stats {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .stat-label {
+            color: var(--color-grey-400);
+            font-size: 0.9rem;
+        }
+        
+        .stat-value {
+            color: var(--color-pure-white);
+            font-weight: 600;
+        }
+        
+        .total-cost {
+            font-size: 1.2rem;
+            color: var(--color-pure-white);
+            border-bottom: none;
+            padding-top: 1rem;
+        }
+        
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-grey-300);
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--color-pure-black);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--color-pure-white);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-pure-white);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+        
+        /* Color & Image Selection */
+        .customization-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .option-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .color-picker-wrapper {
+            position: relative;
+        }
+        
+        .color-picker {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            background: var(--color-pure-white);
+        }
+        
+        .color-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .upload-btn {
+            background: var(--color-grey-800);
+            color: var(--color-pure-white);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+        
+        .upload-btn:hover {
+            background: var(--color-grey-700);
+            border-color: var(--color-pure-white);
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-name {
+            font-size: 0.8rem;
+            color: var(--color-grey-400);
+            margin-top: 0.5rem;
+        }
+        
+        /* Action Buttons */
+        .dashboard-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-pure-white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--color-pure-white);
+        }
+        
+        .btn-primary {
+            background: var(--color-pure-white);
+            color: var(--color-pure-black);
+            flex: 1;
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+        
+        .btn-primary:disabled {
+            background: var(--color-grey-700);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        /* About Page */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .about-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--color-grey-300);
+            font-weight: 300;
+        }
+        
+        /* Terms Page */
+        .terms-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .terms-title {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .terms-section {
+            margin-bottom: 3rem;
+        }
+        
+        .terms-heading {
+            font-family: var(--font-elegant);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-pure-white);
+        }
+        
+        .terms-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-grey-300);
+            margin-bottom: 1rem;
+        }
+        
+        .terms-list {
+            list-style: none;
+            padding-left: 2rem;
+        }
+        
+        .terms-list li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--color-grey-300);
+        }
+        
+        .terms-list li::before {
+            content: '→';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--color-grey-500);
+        }
+        
+        /* Success Modal */
+        .success-content {
+            padding: 4rem;
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-message {
+            color: var(--color-grey-300);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Loading State */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-grey-600);
+            border-top-color: var(--color-pure-white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-sidebar {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-wrapper {
+                padding: 1rem 2rem;
+            }
+            
+            .canvas-container {
+                width: 95vw;
+                height: 95vw;
+            }
+            
+            .dashboard-layout {
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                max-width: 100vw;
+                max-height: 100vh;
+                border: none;
+            }
+            
+            .about-title,
+            .terms-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--color-pure-black);
+            z-index: 999;
+            transition: var(--transition-smooth);
+            padding: 5rem 2rem 2rem;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .mobile-menu-links a {
+            color: var(--color-pure-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: var(--transition-fast);
+        }
+        
+        .mobile-menu-links a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Canvas Zoom Styles */
+        .canvas-zoomed-1x { width: 600px; height: 600px; }
+        .canvas-zoomed-2x { width: 1200px; height: 1200px; }
+        .canvas-zoomed-4x { width: 2400px; height: 2400px; }
+        .canvas-zoomed-8x { width: 4800px; height: 4800px; }
+        
+        /* Pixel Preview */
+        .pixel-preview {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--color-pure-black);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        
+        .preview-box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: var(--color-pure-white);
+        }
+        
+        .preview-text {
+            font-size: 0.8rem;
+            color: var(--color-grey-400);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <a href="#" class="logo">YOURHOMEPAGE</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" onclick="showAbout()">About</a></li>
+                <li><a href="#" class="nav-link" onclick="showTerms()">Terms</a></li>
+                <li><button class="buy-pixels-btn" onclick="showDashboard()">BUY PIXELS</button></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span class="menu-icon"></span>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#" onclick="showAbout(); closeMobileMenu()">About</a></li>
+            <li><a href="#" onclick="showTerms(); closeMobileMenu()">Terms</a></li>
+            <li><a href="#" onclick="showDashboard(); closeMobileMenu()">Buy Pixels</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="grids-container" id="gridsContainer">
+            <!-- Grid pages will be dynamically generated here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link" onclick="showAbout()">About</a>
+                <a href="#" class="footer-link" onclick="showTerms()">Terms</a>
+                <a href="#" class="footer-link" onclick="showDashboard()">Buy Pixels</a>
+            </div>
+            <p class="footer-copyright">© 2025 YourHomepage.in - Own Your Piece of the Internet</p>
+        </div>
+    </footer>
+
+    <!-- Pixel Tooltip -->
+    <div class="pixel-tooltip" id="pixelTooltip"></div>
+
+    <!-- Purchase Dashboard Modal -->
+    <div class="modal" id="dashboardModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDashboard()">&times;</button>
+            <div class="purchase-dashboard">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">PIXEL DASHBOARD</h1>
+                    <p class="dashboard-subtitle">Select and customize your digital territory</p>
+                </div>
+
+                <div class="dashboard-layout">
+                    <!-- Canvas Section -->
+                    <div class="canvas-section">
+                        <div class="canvas-controls">
+                            <div class="page-selector">
+                                <label for="pageSelect">Page:</label>
+                                <select id="pageSelect" class="page-select" onchange="changePage()">
+                                    <option value="1">Page 1 (₹100/pixel)</option>
+                                    <option value="2">Page 2 (₹90/pixel)</option>
+                                    <option value="3">Page 3 (₹80/pixel)</option>
+                                    <option value="4">Page 4 (₹70/pixel)</option>
+                                    <option value="5">Page 5 (₹60/pixel)</option>
+                                    <option value="6">Page 6 (₹50/pixel)</option>
+                                    <option value="7">Page 7 (₹40/pixel)</option>
+                                    <option value="8">Page 8 (₹30/pixel)</option>
+                                    <option value="9">Page 9 (₹20/pixel)</option>
+                                    <option value="10">Page 10 (₹10/pixel)</option>
+                                </select>
+                            </div>
+                            <div class="zoom-controls">
+                                <button class="zoom-btn" onclick="zoomOut()">−</button>
+                                <span class="zoom-level" id="zoomLevel">100%</span>
+                                <button class="zoom-btn" onclick="zoomIn()">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-canvas-container" id="canvasContainer">
+                            <div class="interactive-canvas canvas-zoomed-1x" id="interactiveCanvas">
+                                <!-- Grid will be rendered here -->
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1rem; text-align: center;">
+                            <p style="color: var(--color-grey-400); font-size: 0.85rem;">
+                                Use mouse to drag • Scroll to zoom • Click pixels to select
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="dashboard-sidebar">
+                        <!-- Selection Info -->
+                        <div class="sidebar-section">
+                            <h2 class="section-title">Selection Summary</h2>
+                            <div class="selection-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Selected Pixels</span>
+                                    <span class="stat-value" id="selectedCount">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Price per Pixel</span>
+                                    <span class="stat-value" id="pricePerPixel">₹100</span>
+                                </div>
+                                <div class="stat-item total-cost">
+                                    <span class="stat-label">Total Investment</span>
+                                    <span class="stat-value" id="totalCost">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pixel Details -->
+                        <div class="sidebar-section">
+                            <h2 class="section-title">Pixel Details</h2>
+                            <form id="pixelForm">
+                                <div class="form-group">
+                                    <label class="form-label">Website URL *</label>
+                                    <input type="url" class="form-input" id="websiteUrl" 
+                                           placeholder="https://yourbrand.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Brand Description</label>
+                                    <textarea class="form-input form-textarea" id="brandDescription" 
+                                              placeholder="Describe your brand (visible on hover)"
+                                              maxlength="200"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact Email *</label>
+                                    <input type="email" class="form-input" id="contactEmail" 
+                                           placeholder="contact@yourbrand.com" required>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Customization -->
+                        <div class="sidebar-section">
+                            <h2 class="section-title">Pixel Appearance</h2>
+                            <div class="customization-options">
+                                <div class="option-group">
+                                    <label class="form-label">Color:</label>
+                                    <div class="color-picker-wrapper">
+                                        <div class="color-picker" id="colorPreview">
+                                            <input type="color" class="color-input" id="pixelColor" 
+                                                   value="#000000" onchange="updateColorPreview()">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <label class="form-label">Or upload image:</label>
+                                    <button class="upload-btn" onclick="document.getElementById('pixelImage').click()">
+                                        Choose Image
+                                    </button>
+                                    <input type="file" class="file-input" id="pixelImage" 
+                                           accept="image/*" onchange="handleImageUpload(event)">
+                                </div>
+                                <div class="file-name" id="fileName"></div>
+                                <div class="pixel-preview" id="pixelPreview">
+                                    <div class="preview-box" id="previewBox"></div>
+                                    <p class="preview-text">Preview of your pixel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="dashboard-actions">
+                            <button class="btn btn-secondary" onclick="clearSelection()">Clear</button>
+                            <button class="btn btn-primary" id="purchaseBtn" onclick="proceedToCheckout()" disabled>
+                                Purchase Pixels
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAbout()">&times;</button>
+            <div class="about-content">
+                <h1 class="about-title">OWN YOUR PIECE OF THE INTERNET</h1>
+                <p class="about-text">
+                    YourHomepage.in is the ultimate digital real estate platform where visionary brands 
+                    and individuals can permanently claim their space on the internet. Each pixel you 
+                    purchase is yours for 99 years - a digital legacy that transcends traditional marketing.
+                </p>
+                <p class="about-text" style="margin-top: 2rem;">
+                    Join the exclusive community of digital pioneers who understand that the future of 
+                    brand presence isn't temporary campaigns, but permanent ownership of internet real estate.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTerms()">&times;</button>
+            <div class="terms-content">
+                <h1 class="terms-title">TERMS & CONDITIONS</h1>
+                
+                <div class="terms-section">
+                    <h2 class="terms-heading">1. What You're Buying</h2>
+                    <p class="terms-text">
+                        When you purchase pixels on YourHomepage.in, you're buying the exclusive right to 
+                        display your content on those specific pixels for 99 years from the date of purchase. 
+                        Think of it as leasing a billboard, but for nearly a century!
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">2. The 99-Year Promise</h2>
+                    <p class="terms-text">
+                        Your pixels will remain active and displaying your chosen content for 99 years. 
+                        We handle all hosting, maintenance, and technical upkeep. You pay once, and we 
+                        take care of everything else for the entire duration.
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">3. Payment & Refunds</h2>
+                    <p class="terms-text">
+                        All pixel purchases are final and non-refundable. Why? Because once you buy pixels, 
+                        they're reserved exclusively for you for 99 years. We recommend:
+                    </p>
+                    <ul class="terms-list">
+                        <li>Carefully selecting your pixel location</li>
+                        <li>Double-checking your website URL</li>
+                        <li>Reviewing your color/image choices</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">4. What You Can Display</h2>
+                    <p class="terms-text">
+                        Your pixels can display a solid color or an image, along with a link to your website. 
+                        However, your content must be:
+                    </p>
+                    <ul class="terms-list">
+                        <li>Legal and appropriate for all audiences</li>
+                        <li>Free from hate speech, violence, or discrimination</li>
+                        <li>Not infringing on copyrights or trademarks</li>
+                        <li>Professional and in good taste</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">5. Content Removal</h2>
+                    <p class="terms-text">
+                        We reserve the right to remove content that violates our guidelines without refund. 
+                        This includes illegal content, malware, inappropriate material, or anything that 
+                        could harm our platform or other users.
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">6. Transferring Ownership</h2>
+                    <p class="terms-text">
+                        Want to sell or transfer your pixels? You can! Just contact us at 
+                        transfer@yourhomepage.in with:
+                    </p>
+                    <ul class="terms-list">
+                        <li>Proof of current ownership</li>
+                        <li>Details of the new owner</li>
+                        <li>Written agreement between both parties</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">7. Privacy & Data</h2>
+                    <p class="terms-text">
+                        We collect only essential information: your email, website URL, and payment details. 
+                        This data is encrypted and never shared with third parties. We use it solely to 
+                        manage your pixel ownership and contact you if needed.
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">8. Technical Stuff</h2>
+                    <p class="terms-text">
+                        We guarantee 99.9% uptime. If our service is down for extended periods, we'll add 
+                        those days to your 99-year ownership period. Fair is fair!
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">9. Future Changes</h2>
+                    <p class="terms-text">
+                        While we may update the platform's design or features, your pixel ownership and 
+                        display rights remain unchanged for the full 99 years. Any updates will enhance, 
+                        not diminish, your investment.
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2 class="terms-heading">10. Contact Us</h2>
+                    <p class="terms-text">
+                        Questions? Concerns? Exciting ideas? Reach out to us:
+                    </p>
+                    <ul class="terms-list">
+                        <li>Email: support@yourhomepage.in</li>
+                        <li>Response time: Within 48 hours</li>
+                        <li>Available in English and Hindi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <button class="modal-close" onclick="closeSuccess()">&times;</button>
+            <div class="success-icon">✨</div>
+            <h2 class="success-title">PIXELS SECURED!</h2>
+            <p class="success-message">
+                Congratulations! You've successfully claimed your digital territory. 
+                Your pixels are now reserved for the next 99 years.
+            </p>
+            <button class="btn btn-primary" onclick="closeSuccess()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        // Global State
+        let state = {
+            currentPage: 1,
+            selectedPixels: new Set(),
+            purchasedPixels: {},
+            zoomLevel: 1,
+            isDragging: false,
+            dragStart: { x: 0, y: 0 },
+            canvasPosition: { x: 0, y: 0 },
+            pixelData: {},
+            uploadedImage: null
+        };
+
+        // Prices for each page
+        const PAGE_PRICES = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPurchasedData();
+            generateHomeGrids();
+            initializeEventListeners();
+        });
+
+        // Load saved data
+        function loadPurchasedData() {
+            const saved = localStorage.getItem('yourhomepage_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                state.purchasedPixels = data.purchasedPixels || {};
+                state.pixelData = data.pixelData || {};
+            }
+        }
+
+        // Save data
+        function saveData() {
+            const data = {
+                purchasedPixels: state.purchasedPixels,
+                pixelData: state.pixelData
+            };
+            localStorage.setItem('yourhomepage_data', JSON.stringify(data));
+        }
+
+        // Generate home page grids
+        function generateHomeGrids() {
+            const container = document.getElementById('gridsContainer');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                const gridPage = document.createElement('div');
+                gridPage.className = 'grid-page';
+                gridPage.style.animationDelay = `${i * 0.1}s`;
+                
+                const canvasContainer = document.createElement('div');
+                canvasContainer.className = 'canvas-container';
+                
+                const canvas = document.createElement('canvas');
+                canvas.className = 'pixel-canvas';
+                canvas.id = `canvas-page-${i}`;
+                canvas.width = 1000;
+                canvas.height = 1000;
+                
+                canvasContainer.appendChild(canvas);
+                gridPage.appendChild(canvasContainer);
+                container.appendChild(gridPage);
+
+                renderCanvas(canvas, i);
+                setupCanvasInteraction(canvas, i);
+            }
+        }
+
+        // Render canvas with pixels
+        function renderCanvas(canvas, pageNumber) {
+            const ctx = canvas.getContext('2d');
+            const pixelSize = 1;
+
+            // Clear canvas
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, 1000, 1000);
+
+            // Draw grid lines
+            ctx.strokeStyle = 'rgba(0,0,0,0.05)';
+            ctx.lineWidth = 0.5;
+
+            // Draw purchased pixels
+            const pagePurchased = state.purchasedPixels[pageNumber] || {};
+            
+            for (let i = 0; i < 1000000; i++) {
+                const x = i % 1000;
+                const y = Math.floor(i / 1000);
+                
+                if (pagePurchased[i]) {
+                    const pixelInfo = state.pixelData[`${pageNumber}-${i}`];
+                    if (pixelInfo) {
+                        if (pixelInfo.image) {
+                            // Draw image
+                            // In production, you'd load and draw the actual image
+                            ctx.fillStyle = pixelInfo.color || '#000000';
+                        } else {
+                            ctx.fillStyle = pixelInfo.color || '#000000';
+                        }
+                        ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+                    }
+                }
+            }
+        }
+
+        // Setup canvas interaction
+        function setupCanvasInteraction(canvas, pageNumber) {
+            let hoverTimeout;
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = 1000 / rect.width;
+                const scaleY = 1000 / rect.height;
+                
+                const x = Math.floor((e.clientX - rect.left) * scaleX);
+                const y = Math.floor((e.clientY - rect.top) * scaleY);
+                
+                if (x >= 0 && x < 1000 && y >= 0 && y < 1000) {
+                    const pixelIndex = y * 1000 + x;
+                    const pixelInfo = state.pixelData[`${pageNumber}-${pixelIndex}`];
+                    
+                    clearTimeout(hoverTimeout);
+                    
+                    if (pixelInfo && pixelInfo.description) {
+                        showTooltip(e.clientX, e.clientY, pixelInfo.description);
+                    } else {
+                        hideTooltip();
+                    }
+                }
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+                hideTooltip();
+            });
+
+            canvas.addEventListener('click', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = 1000 / rect.width;
+                const scaleY = 1000 / rect.height;
+                
+                const x = Math.floor((e.clientX - rect.left) * scaleX);
+                const y = Math.floor((e.clientY - rect.top) * scaleY);
+                
+                if (x >= 0 && x < 1000 && y >= 0 && y < 1000) {
+                    const pixelIndex = y * 1000 + x;
+                    const pixelInfo = state.pixelData[`${pageNumber}-${pixelIndex}`];
+                    
+                    if (pixelInfo && pixelInfo.url) {
+                        window.open(pixelInfo.url, '_blank');
+                    }
+                }
+            });
+        }
+
+        // Tooltip functions
+        function showTooltip(x, y, text) {
+            const tooltip = document.getElementById('pixelTooltip');
+            tooltip.textContent = text;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = (y - 40) + 'px';
+            tooltip.classList.add('active');
+        }
+
+        function hideTooltip() {
+            document.getElementById('pixelTooltip').classList.remove('active');
+        }
+
+        // Dashboard functions
+        function showDashboard() {
+            document.getElementById('dashboardModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderInteractiveGrid();
+        }
+
+        function closeDashboard() {
+            document.getElementById('dashboardModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Render interactive grid for dashboard
+        function renderInteractiveGrid() {
+            const canvas = document.getElementById('interactiveCanvas');
+            canvas.innerHTML = '';
+            
+            const gridContainer = document.createElement('div');
+            gridContainer.style.width = '1000px';
+            gridContainer.style.height = '1000px';
+            gridContainer.style.display = 'grid';
+            gridContainer.style.gridTemplateColumns = 'repeat(50, 1fr)';
+            gridContainer.style.gridTemplateRows = 'repeat(50, 1fr)';
+            gridContainer.style.background = '#FFFFFF';
+            gridContainer.style.gap = '0';
+            
+            // Create a simplified grid (50x50 = 2500 cells, each representing 20x20 pixels)
+            for (let i = 0; i < 2500; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'pixel-cell';
+                cell.style.border = '0.5px solid rgba(0,0,0,0.1)';
+                cell.style.cursor = 'pointer';
+                cell.dataset.cellIndex = i;
+                
+                // Check if any pixels in this cell are purchased
+                const startPixel = (Math.floor(i / 50) * 20 * 1000) + ((i % 50) * 20);
+                let isPurchased = false;
+                
+                for (let dy = 0; dy < 20; dy++) {
+                    for (let dx = 0; dx < 20; dx++) {
+                        const pixelIndex = startPixel + (dy * 1000) + dx;
+                        if (state.purchasedPixels[state.currentPage] && 
+                            state.purchasedPixels[state.currentPage][pixelIndex]) {
+                            isPurchased = true;
+                            break;
+                        }
+                    }
+                    if (isPurchased) break;
+                }
+                
+                if (isPurchased) {
+                    cell.classList.add('purchased');
+                    cell.style.background = '#666666';
+                }
+                
+                cell.addEventListener('click', () => togglePixelSelection(i));
+                gridContainer.appendChild(cell);
+            }
+            
+            canvas.appendChild(gridContainer);
+            setupCanvasControls();
+        }
+
+        // Toggle pixel selection
+        function togglePixelSelection(cellIndex) {
+            const cell = document.querySelector(`[data-cell-index="${cellIndex}"]`);
+            if (cell.classList.contains('purchased')) return;
+            
+            // Convert cell to actual pixels (each cell = 20x20 pixels)
+            const cellX = cellIndex % 50;
+            const cellY = Math.floor(cellIndex / 50);
+            const startPixel = (cellY * 20 * 1000) + (cellX * 20);
+            
+            // Toggle all pixels in this cell
+            let wasSelected = false;
+            for (let dy = 0; dy < 20; dy++) {
+                for (let dx = 0; dx < 20; dx++) {
+                    const pixelIndex = startPixel + (dy * 1000) + dx;
+                    if (state.selectedPixels.has(pixelIndex)) {
+                        state.selectedPixels.delete(pixelIndex);
+                        wasSelected = true;
+                    } else {
+                        state.selectedPixels.add(pixelIndex);
+                    }
+                }
+            }
+            
+            if (wasSelected) {
+                cell.classList.remove('selected');
+            } else {
+                cell.classList.add('selected');
+            }
+            
+            updateSelectionInfo();
+        }
+
+        // Canvas controls
+        function setupCanvasControls() {
+            const canvas = document.getElementById('interactiveCanvas');
+            const container = document.getElementById('canvasContainer');
+            
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+            
+            canvas.addEventListener('mousedown', (e) => {
+                if (e.target === canvas) {
+                    isDragging = true;
+                    canvas.classList.add('dragging');
+                    startX = e.pageX - container.offsetLeft;
+                    startY = e.pageY - container.offsetTop;
+                    scrollLeft = container.scrollLeft;
+                    scrollTop = container.scrollTop;
+                }
+            });
+            
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const y = e.pageY - container.offsetTop;
+                const walkX = (x - startX) * 2;
+                const walkY = (y - startY) * 2;
+                container.scrollLeft = scrollLeft - walkX;
+                container.scrollTop = scrollTop - walkY;
+            });
+            
+            canvas.addEventListener('mouseup', () => {
+                isDragging = false;
+                canvas.classList.remove('dragging');
+            });
+            
+            canvas.addEventListener('mouseleave', () => {
+                isDragging = false;
+                canvas.classList.remove('dragging');
+            });
+            
+            // Zoom with mouse wheel
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (e.deltaY < 0) {
+                    zoomIn();
+                } else {
+                    zoomOut();
+                }
+            });
+        }
+
+        // Zoom functions
+        function zoomIn() {
+            if (state.zoomLevel < 8) {
+                state.zoomLevel *= 2;
+                updateZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (state.zoomLevel > 0.5) {
+                state.zoomLevel /= 2;
+                updateZoom();
+            }
+        }
+
+        function updateZoom() {
+            const canvas = document.getElementById('interactiveCanvas');
+            canvas.className = `interactive-canvas canvas-zoomed-${state.zoomLevel}x`;
+            document.getElementById('zoomLevel').textContent = `${state.zoomLevel * 100}%`;
+        }
+
+        // Update selection info
+        function updateSelectionInfo() {
+            const pixelCount = state.selectedPixels.size;
+            const pricePerPixel = PAGE_PRICES[state.currentPage - 1];
+            const totalCost = pixelCount * pricePerPixel;
+            
+            document.getElementById('selectedCount').textContent = pixelCount.toLocaleString();
+            document.getElementById('pricePerPixel').textContent = `₹${pricePerPixel}`;
+            document.getElementById('totalCost').textContent = `₹${totalCost.toLocaleString()}`;
+            
+            // Update purchase button
+            const purchaseBtn = document.getElementById('purchaseBtn');
+            purchaseBtn.disabled = pixelCount === 0 || !validateForm();
+        }
+
+        // Form validation
+        function validateForm() {
+            const url = document.getElementById('websiteUrl').value;
+            const email = document.getElementById('contactEmail').value;
+            
+            return url && email && url.startsWith('http') && email.includes('@');
+        }
+
+        // Clear selection
+        function clearSelection() {
+            state.selectedPixels.clear();
+            document.querySelectorAll('.pixel-cell.selected').forEach(cell => {
+                cell.classList.remove('selected');
+            });
+            updateSelectionInfo();
+        }
+
+        // Change page
+        function changePage() {
+            state.currentPage = parseInt(document.getElementById('pageSelect').value);
+            state.selectedPixels.clear();
+            renderInteractiveGrid();
+            updateSelectionInfo();
+        }
+
+        // Color preview
+        function updateColorPreview() {
+            const color = document.getElementById('pixelColor').value;
+            document.getElementById('colorPreview').style.background = color;
+            document.getElementById('previewBox').style.background = color;
+        }
+
+        // Image upload
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('fileName').textContent = file.name;
+                // In production, you'd process and store the image
+                state.uploadedImage = file;
+                
+                // Show image preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('previewBox').style.backgroundImage = `url(${e.target.result})`;
+                    document.getElementById('previewBox').style.backgroundSize = 'cover';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Checkout
+        function proceedToCheckout() {
+            if (!validateForm() || state.selectedPixels.size === 0) return;
+            
+            const purchaseData = {
+                page: state.currentPage,
+                pixels: Array.from(state.selectedPixels),
+                url: document.getElementById('websiteUrl').value,
+                description: document.getElementById('brandDescription').value,
+                email: document.getElementById('contactEmail').value,
+                color: document.getElementById('pixelColor').value,
+                image: state.uploadedImage,
+                totalCost: state.selectedPixels.size * PAGE_PRICES[state.currentPage - 1]
+            };
+            
+            // Simulate payment (in production, integrate Razorpay)
+            if (confirm(`Confirm purchase of ${purchaseData.pixels.length} pixels for ₹${purchaseData.totalCost}?`)) {
+                processPurchase(purchaseData);
+            }
+        }
+
+        // Process purchase
+        function processPurchase(data) {
+            // Update purchased pixels
+            if (!state.purchasedPixels[data.page]) {
+                state.purchasedPixels[data.page] = {};
+            }
+            
+            data.pixels.forEach(pixelIndex => {
+                state.purchasedPixels[data.page][pixelIndex] = true;
+                state.pixelData[`${data.page}-${pixelIndex}`] = {
+                    url: data.url,
+                    description: data.description,
+                    color: data.color,
+                    image: data.image ? true : false,
+                    email: data.email,
+                    purchaseDate: new Date().toISOString()
+                };
+            });
+            
+            saveData();
+            
+            // Update home page canvas
+            const canvas = document.getElementById(`canvas-page-${data.page}`);
+            if (canvas) {
+                renderCanvas(canvas, data.page);
+            }
+            
+            // Show success modal
+            closeDashboard();
+            showSuccess();
+            
+            // Clear form and selection
+            clearSelection();
+            document.getElementById('pixelForm').reset();
+            document.getElementById('fileName').textContent = '';
+            state.uploadedImage = null;
+        }
+
+        // Modal functions
+        function showAbout() {
+            document.getElementById('aboutModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAbout() {
+            document.getElementById('aboutModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showTerms() {
+            document.getElementById('termsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTerms() {
+            document.getElementById('termsModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showSuccess() {
+            document.getElementById('successModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSuccess() {
+            document.getElementById('successModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+
+        // Initialize event listeners
+        function initializeEventListeners() {
+            // Form validation
+            document.getElementById('websiteUrl').addEventListener('input', updateSelectionInfo);
+            document.getElementById('contactEmail').addEventListener('input', updateSelectionInfo);
+            
+            // Close modals on backdrop click
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            
+            // ESC key to close modals
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.active').forEach(modal => {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                    closeMobileMenu();
+                }
+            });
+            
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Production-ready considerations
+        // In a production environment, you would:
+        // 1. Use a real backend API to handle pixel purchases
+        // 2. Integrate Razorpay for actual payments
+        // 3. Store pixel data in a database (PostgreSQL/MongoDB)
+        // 4. Use WebSockets for real-time updates
+        // 5. Implement image processing and CDN storage
+        // 6. Add authentication for pixel management
+        // 7. Implement server-side rendering for better performance
+        // 8. Use Canvas API more efficiently for 1000x1000 rendering
+        
+        // For now, this demo uses localStorage and simplified rendering
+        // to demonstrate the concept and user experience
+    </script>
+</body>
+</html>
